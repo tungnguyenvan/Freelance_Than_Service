@@ -51,6 +51,51 @@ class Admin_Model{
 		}
 		return false;
 	}
+
+	public function updateToken($id, $token){
+		$conn = FT_Database::instance()->getConnection();
+		$sql = "UPDATE admin SET token = \"$token\" WHERE id = $id";
+
+		$result = mysqli_query($conn, $sql);
+		if ($result) return true;
+		else return false;
+	}
+
+	public function sendNotification($name){
+		$conn = FT_Database::instance()->getConnection();
+		$sql = "SELECT * FROM admin";
+		$result = mysqli_query($conn, $sql);
+
+		if ($result) {
+			echo "success";
+		}
+
+		while ($row = mysqli_fetch_assoc($result)) {
+			$url = 'https://fcm.googleapis.com/fcm/send';
+				$headers = array(
+					'Content-Type : application/json',
+					'Authorization : key=AAAAgLlu6eA:APA91bGBVtLtYfUw2SrkjBqqgjybBu9FQgD9UB8X5A9M1Sid4JtItB7IZeUWp5t9dWZG3qazdpSVMvQv31n3pp2RznGUoCkIkaxuwwDSuMR3toau-UWZ1zc7KAlUoJ3h6pGBpVP4ecRd'
+				);
+
+			$fields = array(
+					'notification' => array(
+						'body' => "$name, vừa mới đăng ký",
+						'title' => 'New Person Register'
+					),
+					'to' => $row['token']
+				);
+
+			$ch = curl_init ();
+			 curl_setopt ( $ch, CURLOPT_URL, $url );
+			 curl_setopt ( $ch, CURLOPT_POST, true );
+			 curl_setopt ( $ch, CURLOPT_HTTPHEADER, $headers );
+			 curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+			 curl_setopt ( $ch, CURLOPT_POSTFIELDS, json_encode($fields) );
+			 // $result = curl_exec ( $ch );
+			 echo curl_exec ( $ch );
+			 curl_close ( $ch );
+		}
+	}
 }
 
 ?>

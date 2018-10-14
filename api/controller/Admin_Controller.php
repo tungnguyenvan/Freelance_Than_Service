@@ -53,6 +53,22 @@ class Admin_Controller extends Base_Controller {
 		}
 	}
 
+	public function updateToken(){
+		$this->model->load('Admin');
+		$result = $this->model->Admin->updateToken($_POST['id'], $_POST['token']);
+
+		if ($result) {
+			echo "{\"message\": true}";
+		}else{
+			echo "{\"message\": false}";
+		}
+	}
+
+	public function sendNotification(){
+		$this->model->load('Admin');
+		$this->model->Admin->sendNotification("123412434");
+	}
+
 }
 
 ?>

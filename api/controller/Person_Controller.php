@@ -36,6 +36,9 @@ class Person_Controller extends Base_Controller {
 	public function updatePerson(){
 		 $id = $_POST['id'];
 		 $name = $_POST['name'];
+		 $sex = $_POST['sex'];
+		 $height = $_POST['height'];
+		 $weight = $_POST['weight'];
 		 $phone = $_POST['phone'];
 		 $zalo = $_POST['zalo'];
 		 $job = $_POST['job'];
@@ -58,7 +61,7 @@ class Person_Controller extends Base_Controller {
 		 $status = $_POST['status'];
 
 		 $this->model->load('Person');
-		 $result = $this->model->Person->updatePerson($id, $name, $phone, $zalo, $job, $birthday, $CMND, $SHK, $XNDS, $GKS,$GKH, $khac1, $khac2, $khac3, $khac4, $khac5, $address, $address, $blood, $description, $date_register, $status);
+		 $result = $this->model->Person->updatePerson($id, $name, $sex, $height, $weight, $phone, $zalo, $job, $birthday, $CMND, $SHK, $XNDS, $GKS,$GKH, $khac1, $khac2, $khac3, $khac4, $khac5, $address, $address, $blood, $description, $date_register, $status);
 
 		 if ($result) {
 		 	echo "{\"message\": true}";
@@ -136,7 +139,9 @@ class Person_Controller extends Base_Controller {
 
 	public function oderByPerson(){
 		$this->model->load('Person');
-		$result = $this->model->Person->oderByPerson($_POST['status'], $_POST['blood']);
+		if (empty($_POST['date_register'])) 
+			$result = $this->model->Person->oderByPerson($_POST['status'], $_POST['blood']);
+		else $result = $this->model->Person->getPersonFromBloodAndDate($_POST['date_register'], $_POST['blood']);
 
 		echo json_encode($result);
 	}
@@ -149,6 +154,36 @@ class Person_Controller extends Base_Controller {
 
 		$this->model->load('Person');
 		$result = $this->model->Person->updateImage($SHK, $XNDS, $GKS, $GKH);
+
+		if ($result) {
+		 	echo "{\"message\": true}";
+		 }else{
+		 	echo "{\"message\": false}";
+		 }
+	}
+
+	public function getPersonFromSexAndBlood(){
+		$this->model->load('Person');
+		$result = "";
+		if (empty($_POST['date_register']))
+			$result = $this->model->Person->getPersonFromSexAndBlood($_POST['sex'], $_POST['blood'], $_POST['status']);
+		else $result = $this->model->Person->getPersonFromSexBloodDateRegister($_POST['sex'], $_POST['blood'], $_POST['date_register']);
+
+		echo json_encode($result);
+	}
+
+	public function getPersonFromSex(){
+		$this->model->load('Person');
+		$result = "";
+		if (empty($_POST['date_register'])) 
+			$result = $this->model->Person->getPersonFromSex($_POST['sex'], $_POST['status']);
+		else $result = $this->model->Person->getPersonFromSexAndDate($_POST['sex'], $_POST['date_register']);
+		echo json_encode($result);
+	}
+
+	public function updateImagePerson(){
+		$this->model->load('Person');
+		$result = $this->model->Person->updateImagePerson($_POST['key'], $_POST['data_image'], $_POST['id']);
 
 		if ($result) {
 		 	echo "{\"message\": true}";
