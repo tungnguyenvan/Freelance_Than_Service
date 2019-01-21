@@ -191,6 +191,12 @@ class Person_Controller extends Base_Controller {
 		 	echo "{\"message\": false}";
 		 }
 	}
+
+	public function getTotalPerson(){
+		$this->model->load('Person');
+		$result = $this->model->Person->getTotalPerson($_POST['status']);
+		echo "{\"total\": $result}";
+	}
 }
 
 ?>

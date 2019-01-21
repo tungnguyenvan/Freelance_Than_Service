@@ -520,5 +520,20 @@ class Person_Model{
 		if ($result) return true;
 		else return false;
 	}
+
+	public function getTotalPerson($status){
+		$conn = FT_Database::instance()->getConnection();
+		$sql = "SELECT Count(id) as total FROM person WHERE status = $status";
+		$result = mysqli_query($conn, $sql);
+
+		if (!$result) die ('Error: ');
+
+		if ($result) {
+			$row = mysqli_fetch_assoc($result);
+			return $row['total'];
+		}else {
+			return false;
+		}
+	}
 }
 ?>
