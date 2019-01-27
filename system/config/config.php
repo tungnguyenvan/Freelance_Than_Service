@@ -1,6 +1,6 @@
 <?php
 // Thông số database
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASSWORD', 'Lt');
-define('DB_NAME', 'freelance');
+define('DB_USER', 'qhdssqjfhosting_apphienthan');
+define('DB_PASSWORD', 'tRpGgr,Eudx1');
+define('DB_NAME', 'qhdssqjfhosting_hienthan');

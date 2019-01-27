@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="public/css/Stylesheets/stylesheet.css">
     <meta charset="UTF-8">
-	<meta name="description" content="FreeLancer">
-	<title>FreeLancer</title>
+	<meta name="description" content="Đăng Kí Hiến Thận">
+	<title>Đăng Kí Hiến Thận</title>
   </head>
   <body>
     <div class="container">
@@ -20,25 +20,32 @@
     			<form action="admin.php" class="col-md-12" method="POST">
     				<input type="hidden" name="c" value="person">
     				<input type="hidden" name="a" value="savePerson">
-    				<h1>ĐĂNG KÝ HIẾN THẬN</h1>
-    				<!-- Row 1 -->
+    				</br>
+    				
+    				<p><img class="anh" src="https://hienthan.com/wp-content/uploads/2018/10/the-kidneys.png" alt="" width="300" height="212" />
+    				
+    				</p>
+    			
+<h1 style="text-align: center;span style="color: #3897e8;">ĐĂNG KÝ HIẾN THẬN</h1>    
+</br>
+ <!-- Row 1 -->
     				<div class="row">
     					<!-- input Ten khach hang -->
 					  <div class="form-group col-md-6">
-					    <h6 class="title" for="exampleInputPassword1">Họ và tên:</h6>
+					    <h6 class="title" for="exampleInputPassword1">Họ và Tên:</h6>
 					    <input type="text" class="form-control" name="name" id="name" placeholder="Nguyễn Văn A" required>
 					  </div>
 					  <!-- END Ten khach hang -->
 
 					  <!-- input So dien thoai -->
 					  <div class="form-group col-md-6">
-					    <h6>Liên hệ: Phone mumber / Zalo</h6>
+					    <h6>Thông Tin Liên Hệ:</h6>
 					    <div class="row">
 					    	<div class="form-group col-md-5">
-					    		<input type="text" class="form-control" name="phone" id="phone" placeholder="Phone number" data-country="US" required>
+					    		<input type="text" class="form-control" name="phone" id="phone" placeholder="Số Điện Thoại" data-country="US" required>
 					    	</div>
 					    	<div class="form-group col-md-5">
-					    		<input type="tel" class="form-control" name="zalo" id="zalo" placeholder="Zalo">
+					    		<input type="tel" class="form-control" name="zalo" id="zalo" placeholder="Số Khác Hoặc Zalo">
 					    	</div>
 					    </div>
 					  </div>
@@ -48,9 +55,9 @@
 
 					<div class="row">
 						<div class="form-group col-md-6">
-							<h6>Giới tính:</h6>
+							<h6>Giới Tính:</h6>
 							<select class="form-control" name="sex" required>
-								<option value="">Giới tính</option>
+								<option value="">Vui lòng chọn</option>
 								<option value="Nam">Nam</option>
 								<option value="Nữ">Nữ</option>
 							</select>
@@ -59,12 +66,12 @@
 						<div class="form-group col-md-6">
 							<div class="row">
 								<div class="form-group col-md-5">
-									<h6>Chiều cao: Cm</h6>
-									<input type="tel" name="height" class="form-control" placeholder="170" required>
+									<h6>Chiều Cao: Cm</h6>
+									<input type="tel" name="height" class="form-control" placeholder="169" required>
 								</div>
 								<div class="form-group col-md-5">
-									<h6>Cân nặng: kg</h6>
-									<input type="tel" name="weight" class="form-control" placeholder="70" required>
+									<h6>Cân Nặng: kg</h6>
+									<input type="tel" name="weight" class="form-control" placeholder="52" required>
 								</div>
 							</div>
 						</div>
@@ -73,14 +80,14 @@
 					<div class="row">
     					<!-- input Nghe nghiep -->
 					  <div class="form-group col-md-6">
-					    <h6 for="exampleInputPassword1">Nghề nghiệp:</h6>
+					    <h6 for="exampleInputPassword1">Nghề Nghiệp:</h6>
 					    <input type="text" class="form-control" name="job" id="job" placeholder="Công nhân" required>
 					  </div>
 					  <!-- END Nghe nghiep -->
 
 					  <!-- input ngay thang nam sinh -->
 					  <div class="form-group col-md-6">
-					  	<h6>Ngày tháng năm sinh:</h6>
+					  	<h6>Ngày Tháng Năm Sinh:</h6>
 					  	<input type="text" placeholder="20/02/1990" name="birthday" class="form-control" id="birthday" required>
 					  </div>
 					  <!-- END ngay thang nam sinh -->
@@ -89,14 +96,14 @@
 					<div class="row">
 						<!-- input So CMND -->
 					  <div class="form-group col-md-6">
-					    <h6 for="exampleInputPassword1">Số CMND:</h6>
+					    <h6 for="exampleInputPassword1">Số Chứng Minh Nhân Dân:</h6>
 					    <input type="tel" class="form-control"  name="CMND" placeholder="02341212" required>
 					  </div>
 					  <!-- END  input So CMND-->
 
 					  <!-- input Dia chi -->
 					  <div class="form-group col-md-6">
-					    <h6 for="exampleInputPassword1">Địa chỉ hiện tại:</h6>
+					    <h6 for="exampleInputPassword1">Địa Chỉ Thường Trú:</h6>
 					    <select class="form-control" name="address" required>
 						  	<option value="">Chọn địa chỉ nơi cư trú</option>
 						  	<option value="An Giang">	An Giang	</option>
@@ -171,11 +178,11 @@
 
 						<!-- input Gia dinh dong y -->
 					  <div class="form-check col-md-6">
-					    <h6 for="exampleInputPassword1">Gia đình bạn có ai đồng ý không:</h6>
+					    <h6 for="exampleInputPassword1">Sự Cho Phép Của Gia Đình</h6>
 
 						<!-- <div class="custom-control custom-radio">
 						  <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" name="agress" value="1" checked="checked">
-						  <label class="custom-control-label" for="customRadio1" id="Argee_1">Bố hoặc mẹ</label>
+						  <label class="custom-control-label" for="customRadio1" id="Argee_1">Bố hoặc Mẹ</label>
 						</div>
 						<div class="custom-control custom-radio">
 						  <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" name="agress" value="2">
@@ -186,31 +193,31 @@
 						  <label class="custom-control-label" for="customRadio3" id="Argee_3">Không có ai</label>
 						</div> -->
 						<select class="form-control" name="agress" required>
-							<option value="">Đồng ý</option>
+							<option value="">Vui Lòng Chọn</option>
 							<option value="1">Bố hoặc mẹ</option>
 							<option value="2">Vợ</option>
-							<option value="0">không có ai</option>
+							<option value="0">Không có ai</option>
 						</select>
 					  </div>
 					  <!-- END input Gia dinh dong y -->
 
 						<!-- Nhóm máu -->
 						<div class="form-group col-md-6" required>
-						    <h6 for="exampleInputPassword1">Nhóm máu:</h6>
+						    <h6 for="exampleInputPassword1">Nhóm máu của bạn:</h6>
 						    <select class="form-control" name="blood" required>
-						    	<option value="">Chọn nhóm máu</option>
-						    	<option value="1">Máu O</option>
-						    	<option value="2">Máu A</option>
-						    	<option value="3">Máu B</option>
-						    	<option value="4">Máu AB</option>
-						    	<option value="0">Chưa biết</option>
+						    	<option value="">Vui lòng chọn</option>
+						    	<option value="1">Nhóm máu O</option>
+						    	<option value="2">Nhóm máu A</option>
+						    	<option value="3">Nhóm máu B</option>
+						    	<option value="4">Nhóm máu AB</option>
+						    	<option value="0">Chưa kiểm tra</option>
 						    </select>
 					  	</div>
 					  	<!-- END Nhóm máu -->
 					</div>
 
 					<!-- Button submit -->
-				  <button type="submit" class="btn btn-primary btn-lg btn-block col-md-12">Đăng ký</button>
+				  <button type="submit" class="btn btn-primary btn-lg btn-block col-md-12">Đăng Ký Ngay</button>
 				  <!-- END  Button submit-->
 				</form>
 			</div>

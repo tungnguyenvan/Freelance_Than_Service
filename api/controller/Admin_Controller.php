@@ -64,11 +64,6 @@ class Admin_Controller extends Base_Controller {
 		}
 	}
 
-	public function sendNotification(){
-		$this->model->load('Admin');
-		$this->model->Admin->sendNotification("123412434");
-	}
-
 }
 
 ?>

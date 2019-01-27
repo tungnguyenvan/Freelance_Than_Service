@@ -191,11 +191,31 @@ class Person_Controller extends Base_Controller {
 		 	echo "{\"message\": false}";
 		 }
 	}
-
+	
+	public function getTotalPersonFromStatus(){
+	    $this->model->load('Person');
+		$result = $this->model->Person->getTotalPersonFromStatus($_POST['status']);
+		echo "{\"total\": $result}";
+	}
+	
 	public function getTotalPerson(){
 		$this->model->load('Person');
-		$result = $this->model->Person->getTotalPerson($_POST['status']);
+		$result = $this->model->Person->getTotalPerson($_POST['status'], 
+			$_POST['from-day'], $_POST['to-day']);
 		echo "{\"total\": $result}";
+	}
+	
+	
+	public function getPersonRangeDate() {
+	    $this->model->load('Person');
+	    $result = $this->model->Person->getPersonRangeDate($_POST['status'], 
+			$_POST['from-day'], $_POST['to-day']);
+			
+		if ($result) {
+			echo json_encode($result);
+		}else{
+			echo "{\"message\": false}";
+		}
 	}
 }
 

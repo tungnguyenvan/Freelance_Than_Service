@@ -520,10 +520,66 @@ class Person_Model{
 		if ($result) return true;
 		else return false;
 	}
+	
+	public function getTotalPersonFromStatus($status){
+	    $conn = FT_Database::instance()->getConnection();
+	    $sql = "SELECT Count(id) as total FROM person WHERE status = $status";
+	    $result = mysqli_query($conn, $sql);
+	    
+	    if (!$result) die ('Error: ');
 
-	public function getTotalPerson($status){
+		if ($result) {
+			$row = mysqli_fetch_assoc($result);
+			return $row['total'];
+		}else {
+			return false;
+		}
+	}
+	
+	public function getPersonRangeDate($status, $fromDay, $toDay) {
+	    $conn = FT_Database::instance()->getConnection();
+	    $sql = "SELECT * FROM person WHERE status = $status AND date_register BETWEEN cast('$fromDay' as DATE) AND cast('$toDay' as DATE)";
+	    $result = mysqli_query($conn, $sql);
+	    
+	    if (!$result) die ('Error: ');
+	    
+	    $list_person = array();
+		while ($row = mysqli_fetch_assoc($result)) {
+			$person = new Person_Model();
+			$person->id = $row['id'];
+			$person->name = $row['name'];
+			$person->sex = $row['sex'];
+			$person->height = $row['height'];
+			$person->weight = $row['weight'];
+			$person->phone = $row['phone'];
+			$person->zalo = $row['zalo'];
+			$person->job = $row['job'];
+			$person->birthday = $row['birthday'];
+			$person->CMND = $row['CMND'];
+			$person->SHK = $row['SHK'];
+			$person->XNDS = $row['XNDS'];
+			$person->GKS = $row['GKS'];
+			$person->GKH = $row['GKH'];
+			$person->khac1 = $row['khac1'];
+			$person->khac2 = $row['khac2'];
+			$person->khac3 = $row['khac3'];
+			$person->khac4 = $row['khac4'];
+			$person->khac5 = $row['khac5'];
+			$person->address = $row['address'];
+			$person->argee = $row['Argee'];
+			$person->blood = $row['blood'];
+			$person->description = $row['description'];
+			$person->date_register = $row['date_register'];
+			$person->status = $row['status'];
+
+			array_push($list_person, $person);
+		}
+		return $list_person;
+	}
+	
+	public function getTotalPerson($status, $fromDay, $toDay){
 		$conn = FT_Database::instance()->getConnection();
-		$sql = "SELECT Count(id) as total FROM person WHERE status = $status";
+		$sql = "SELECT Count(id) as total FROM person WHERE status = $status AND date_register BETWEEN cast('$fromDay' as DATE) AND cast('$toDay' as DATE)";
 		$result = mysqli_query($conn, $sql);
 
 		if (!$result) die ('Error: ');

@@ -80,7 +80,7 @@ class Admin_Model{
 			$fields = array(
 					'notification' => array(
 						'body' => "$name, vừa mới đăng ký",
-						'title' => 'New Person Register'
+						'title' => 'New-People'
 					),
 					'to' => $row['token']
 				);

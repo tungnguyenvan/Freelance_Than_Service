@@ -32,9 +32,9 @@ if ( ! defined('PATH_SYSTEM')) die ('Bad requested!');
 
 			if ($result){
 				echo "<script type='text/javascript'>
-					var r = confirm('Thành công');
+					var r = confirm('Bạn đã đăng kí thành công,chúng tôi sẽ liên hệ bạn sớm nhất có thể');
 					if (r == true) {
-					    window.location.assign('http://hienthan.com/')
+					    window.location.assign('https://hienthan.com/lien-he/')
 					} 
 					else{
 						window.history.back();
